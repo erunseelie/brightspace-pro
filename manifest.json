@@ -5,7 +5,8 @@
     "version": "1.0",
   
     "description": "Adds additional functionality to the Brightspace/D2L website for students and faculty at Georgia Gwinnett College.",
-  
+    "homepage_url": "https://github.com/mstiller7/brightspace-pro",
+
     "icons": {
       "48": "icons/main-48px.png"
     },
@@ -15,6 +16,16 @@
         "matches": ["*://ggc.view.usg.edu/*"],
         "js": ["scripts/main.js"]
       }
-    ]
+    ],
+
+    "permissions": [
+        "activeTab"
+    ],
+
+    "browser_action": {
+        "default_title": "BrightspacePro - GGC",
+        "default_icon": "icons/main-48px.png",
+        "default_popup": "dialogues/popups/button.html"
+    }
   
   }
