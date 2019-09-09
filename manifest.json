@@ -1,0 +1,20 @@
+{
+
+    "manifest_version": 2,
+    "name": "BrightspacePro - GGC",
+    "version": "1.0",
+  
+    "description": "Adds additional functionality to the Brightspace/D2L website for students and faculty at Georgia Gwinnett College.",
+  
+    "icons": {
+      "48": "icons/main-48px.png"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["*://ggc.view.usg.edu/*"],
+        "js": ["scripts/main.js"]
+      }
+    ]
+  
+  }
