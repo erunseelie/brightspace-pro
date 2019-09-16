@@ -19,13 +19,22 @@
     ],
 
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "declarativeContent",
+        "storage"
     ],
 
     "browser_action": {
         "default_title": "BrightspacePro - GGC",
         "default_icon": "icons/main-48px.png",
         "default_popup": "dialogues/popups/button.html"
+    },
+
+    "_separator": " -------- Chrome-specific attributes start here. -------- ",
+
+    "background": {
+        "scripts": ["scripts/background.js"],
+        "persistent": false
     }
   
   }

@@ -14,7 +14,6 @@ Extension to improve the Brightspace/D2L user experience. Currently being develo
   - [ ] When the user logs in, show a popup of upcoming assignment due dates.
 - [ ] (Dionne) Show assignment feedback directly on assignment submission hover.
 
-
 ### Low-Priority (1)
 
 - [ ] Include "favorite links" widget somewhere for the user - possibly in the extension button dialogue.
