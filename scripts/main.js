@@ -11,7 +11,7 @@ function getCalendarEvents() {
     // day, month, year
 
     const URL = 'https://ggc.view.usg.edu/d2l/le/calendar/' + userID + '/home/list';
-    let URLrequest = URL + "?day=" + day + "&month=" + "&year=" + year + ".html";
+    let URLrequest = URL + "?day=" + day + "&month=" + month + "&year=" + year;
     console.log("Now accessing: ", URLrequest);
 
     fetch(URLrequest)
@@ -32,9 +32,10 @@ function getCalendarEvents() {
     // parse through the calendar element on each iteration of the returned page
     // TODO: then go through the events in the next 6 days upcoming
 
-    const calendar = html.getElementByClass("d2l-le-calendar-day-events");
+    const calendar = doc.getElementByClass("d2l-le-calendar-day-events");
     for (let halfhour of calendar) {
         // TODO: Parse the HTML element
+        console.log(halfhour);
     }
 }
 
