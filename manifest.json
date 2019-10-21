@@ -14,7 +14,7 @@
     "content_scripts": [
       {
         "matches": ["*://ggc.view.usg.edu/*"],
-        "js": ["scripts/main.js"]
+        "js": ["scripts/calendar.js"]
       }
     ],
 
