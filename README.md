@@ -10,7 +10,7 @@ Extension to improve the Brightspace/D2L user experience. Currently being develo
 
 - [ ] (Dionne) Display final grade appended to course description for each pinned course.
 - [ ] (Matthew) Parse the calendar to determine upcoming due dates, and show the user near-due events.
-  - [ ] Determine "near-due" range; presumably somewhere within 1-5 days.
+  - [x] "Near-due" date range determined (seven days).
   - [ ] When the user logs in, show a popup of upcoming assignment due dates.
 - [ ] (Dionne) Show assignment feedback directly on assignment submission hover.
 
