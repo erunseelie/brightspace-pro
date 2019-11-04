@@ -8,6 +8,8 @@
 let date = new Date();
 getCalendarEvents(date, 7);
 
+sendNotification("This is a test.");
+
 // =================================================================
 
 /**
@@ -17,10 +19,12 @@ getCalendarEvents(date, 7);
  */
 function getCalendarEvents(date, days) {
 
-    if (amount == 0) return;
+    if (days == 0) return;
 
-    const URL = 'https://ggc.view.usg.edu/d2l/le/calendar/6621';
-    let URLrequest = URL + "?day=" + date.getDate() + "&month=" + Number(date.getMonth()+1) + "&year=" + date.getFullYear();
+    let URL = 'https://ggc.view.usg.edu/d2l/le/calendar/6621';
+    let URLrequest = URL + "?day=" + date.getDate() + "&month=" + Number(date.getMonth() + 1) + "&year=" + date.getFullYear();
+
+    console.log("Fetching URL: ", URLrequest);
 
     fetch(URLrequest)
         .then(function (response) {
@@ -48,7 +52,24 @@ function getCalendarEvents(date, days) {
 function parseCalendarEvents(doc) {
     const calendar = doc.getElementsByClassName("d2l-le-calendar-day-events");
     for (let halfhour of calendar) {
-        // TODO: something useful here.
+        // TODO something useful here.
         console.log(halfhour.textContent.replace(/^\s+|\s+$/gm, '')); // magic regex nonsense! strips absurd whitespace.
+    }
+}
+
+/**
+ * Shows a notification with the specified content text.
+ * @param {String} body 
+ */
+function sendNotification(body) {
+    if (Notification.permission !== 'granted')
+        Notification.requestPermission();
+    else {
+        let notification = new Notification("BrightspacePro", {
+            body: body
+        });
+        notification.onclick = function() {
+            // TODO
+        };
     }
 }
