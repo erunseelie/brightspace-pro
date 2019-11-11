@@ -24,8 +24,6 @@ function getCalendarEvents(date, days) {
     let URL = 'https://ggc.view.usg.edu/d2l/le/calendar/6621';
     let URLrequest = URL + "?day=" + date.getDate() + "&month=" + Number(date.getMonth() + 1) + "&year=" + date.getFullYear();
 
-    console.log("Fetching URL: ", URLrequest);
-
     fetch(URLrequest)
         .then(function (response) {
             return response.text();
@@ -50,16 +48,27 @@ function getCalendarEvents(date, days) {
  * @param {HTMLDocument} doc The document to parse.
  */
 function parseCalendarEvents(doc) {
+
+    // TODO complete functionality. JSHint doesn't like anonymous functions...
+    function constructNotif(element) {
+        console.log(element);
+    }
+
     const calendar = doc.getElementsByClassName("d2l-le-calendar-day-events");
-    for (let halfhour of calendar) {
-        // TODO something useful here.
-        console.log(halfhour.textContent.replace(/^\s+|\s+$/gm, '')); // magic regex nonsense! strips absurd whitespace.
+    for (let hour of calendar) {
+
+        // TODO complete.
+        // magic regex nonsense! strips absurd whitespace.
+        let content = hour.textContent.replace(/^\s+|\s+$/gm, '');
+        content = content.split("\n");
+        content.forEach(constructNotif(element));
+
     }
 }
 
 /**
  * Shows a notification with the specified content text.
- * @param {String} body 
+ * @param {String} body The content of the notification.
  */
 function sendNotification(body) {
     if (Notification.permission !== 'granted')
@@ -68,7 +77,7 @@ function sendNotification(body) {
         let notification = new Notification("BrightspacePro", {
             body: body
         });
-        notification.onclick = function() {
+        notification.onclick = function () {
             // TODO
         };
     }
