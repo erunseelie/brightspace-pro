@@ -49,11 +49,6 @@ function getCalendarEvents(date, days) {
  */
 function parseCalendarEvents(doc) {
 
-    // TODO complete functionality. JSHint doesn't like anonymous functions...
-    function constructNotif(element) {
-        console.log(element);
-    }
-
     const calendar = doc.getElementsByClassName("d2l-le-calendar-day-events");
     for (let hour of calendar) {
 
@@ -61,7 +56,9 @@ function parseCalendarEvents(doc) {
         // magic regex nonsense! strips absurd whitespace.
         let content = hour.textContent.replace(/^\s+|\s+$/gm, '');
         content = content.split("\n");
-        content.forEach(constructNotif(element));
+        content.forEach(function(element) {
+            console.log(element);
+        });
 
     }
 }
