@@ -21,8 +21,8 @@ function getCalendarEvents(date, days) {
 
     if (days == 0) return;
 
-    let URL = 'https://ggc.view.usg.edu/d2l/le/calendar/6621';
-    let URLrequest = URL + "?day=" + date.getDate() + "&month=" + Number(date.getMonth() + 1) + "&year=" + date.getFullYear();
+    var URL = 'https://ggc.view.usg.edu/d2l/le/calendar/6621';
+    var URLrequest = URL + "?day=" + date.getDate() + "&month=" + Number(date.getMonth() + 1) + "&year=" + date.getFullYear();
 
     fetch(URLrequest)
         .then(function (response) {
@@ -50,17 +50,40 @@ function getCalendarEvents(date, days) {
 function parseCalendarEvents(doc) {
 
     const calendar = doc.getElementsByClassName("d2l-le-calendar-day-events");
-    for (let hour of calendar) {
+    for (var hour of calendar) {
 
         // TODO complete.
         // magic regex nonsense! strips absurd whitespace.
-        let content = hour.textContent.replace(/^\s+|\s+$/gm, '');
+        var content = hour.textContent.replace(/^\s+|\s+$/gm, '');
         content = content.split("\n");
-        content.forEach(function(element) {
-            console.log(element);
-        });
+        
+        for (var i = 0; i < content.length; i++) {
+
+            console.log(content[i]);
+
+            // let regex = /^\d+:{1}\d+ (AM|PM).+/;
+
+            // var start, end;
+
+            // // if we reach a point where the string starts with
+            // // something other than AM/PM, we've entered an event
+            // if (!(regex.test(content[i]))) {
+            //     start = i;
+            //     while (!(regex.test(content[i]))) {
+            //         i += 1;
+            //         console.log("Looping;");
+            //     }
+            //     end = i-1;
+            // }
+
+            // var body = content.slice(start, end);
+
+            // sendNotification(body);
+
+        }
 
     }
+
 }
 
 /**
